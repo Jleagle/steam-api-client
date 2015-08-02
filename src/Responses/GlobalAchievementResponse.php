@@ -1,7 +1,7 @@
 <?php
 namespace Jleagle\SteamClient\Responses;
 
-class AchievementResponse extends AbstractResponse
+class GlobalAchievementResponse extends AbstractResponse
 {
   public $name;
   public $percent;
