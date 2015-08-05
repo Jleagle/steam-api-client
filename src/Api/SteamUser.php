@@ -39,7 +39,13 @@ class SteamUser extends Steam
     $items = [];
     foreach($data['friendslist']['friends'] as $friend)
     {
-      $items[] = new FriendResponse($friend);
+      $items[] = new FriendResponse(
+        [
+          'steamId'      => $friend['steamid'],
+          'relationship' => $friend['relationship'],
+          'friendSince'  => $friend['friend_since'],
+        ]
+      );
     }
 
     return $items;

@@ -3,7 +3,7 @@ namespace Jleagle\SteamClient\Responses;
 
 class FriendResponse extends AbstractResponse
 {
-  public $steamid;
+  public $steamId;
   public $relationship;
-  public $friend_since;
+  public $friendSince;
 }
