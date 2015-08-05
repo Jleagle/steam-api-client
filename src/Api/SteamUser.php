@@ -71,24 +71,18 @@ class SteamUser extends Steam
   /**
    * @param int $steamId
    *
-   * @return PlayerSummaryResponse[]
+   * @return PlayerSummaryResponse
    *
    * @throws SteamException
    */
-  public function getPlayerSummaries($steamId)
+  public function getPlayerSummary($steamId)
   {
     $path = 'GetPlayerSummaries/v2';
     $query = ['steamids' => $steamId];
 
     $data = $this->_get($path, $query);
 
-    $players = [];
-    foreach($data['response']['players'] as $player)
-    {
-      $players[] = new PlayerSummaryResponse($player);
-    }
-
-    return $players;
+    return new PlayerSummaryResponse($data['response']['players'][0]);
   }
 
   /**

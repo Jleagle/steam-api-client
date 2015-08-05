@@ -89,10 +89,6 @@ abstract class Steam
       $path = 'http://store.steampowered.com/api/appdetails?' . $path;
     }
 
-    //die($path);
-
-    //return $client->get($path);
-
     $context = stream_context_create(
       [
         'http' => [
