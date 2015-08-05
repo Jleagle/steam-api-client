@@ -8,7 +8,7 @@ class BadgesResponse extends AbstractResponse
   public $playerXpNeededToLevelUp;
   public $playerXpNeededCurrentLevel;
   /**
-   * @var BadgeResponse
+   * @var BadgeResponse[]
    */
   public $badges;
 }
