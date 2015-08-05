@@ -1,6 +1,7 @@
 <?php
 namespace Jleagle\SteamClient\Api;
 
+use Jleagle\SteamClient\Enums\LanguageEnum;
 use Jleagle\SteamClient\Responses\GlobalAchievementResponse;
 use Jleagle\SteamClient\Responses\PlayerAchievement;
 use Jleagle\SteamClient\Responses\PlayerAchievements;
@@ -80,7 +81,11 @@ class SteamUserStats extends Steam
   public function getPlayerAchievements($steamId, $appId)
   {
     $path = 'GetPlayerAchievements/v1';
-    $query = ['steamid' => $steamId, 'appid' => $appId, 'l' => 'english'];
+    $query = [
+      'steamid' => $steamId,
+      'appid'   => $appId,
+      'l'       => LanguageEnum::ENGLISH
+    ];
 
     $data = $this->_get($path, $query);
 
@@ -114,7 +119,7 @@ class SteamUserStats extends Steam
     $query = [
       'steamid' => $steamId,
       'appid'   => $appId,
-      'l'       => 'english',
+      'l'       => LanguageEnum::ENGLISH,
     ];
 
     $data = $this->_get($path, $query);
