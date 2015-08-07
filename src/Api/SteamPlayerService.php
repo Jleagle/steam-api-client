@@ -148,6 +148,11 @@ class SteamPlayerService extends Steam
 
     $data = $this->_get($path, $query)['response'];
 
+    if(!$data)
+    {
+      return new BadgesResponse();
+    }
+
     $badges = new BadgesResponse(
       [
         'playerXp'                   => $data['player_xp'],
