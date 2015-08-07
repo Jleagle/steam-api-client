@@ -3,11 +3,14 @@ namespace Jleagle\SteamClient\Responses;
 
 class AbstractResponse
 {
-  public function __construct(array $data)
+  public function __construct(array $data = null)
   {
-    foreach($data as $field => $value)
+    if($data && is_array($data))
     {
-      $this->$field = $value;
+      foreach($data as $field => $value)
+      {
+        $this->$field = $value;
+      }
     }
   }
 
