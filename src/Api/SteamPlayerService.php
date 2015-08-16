@@ -57,10 +57,10 @@ class SteamPlayerService extends Steam
       $games[] = new OwnedGameResponse(
         [
           'appId'                    => $game['appid'],
-          'name'                     => $game['name'],
           'playtimeForever'          => $game['playtime_forever'],
-          'imgIconUrl'               => $game['img_icon_url'],
-          'imgLogoUrl'               => $game['img_logo_url'],
+          'name'                     => Arrays::value($game, 'name'),
+          'imgIconUrl'               => Arrays::value($game, 'img_icon_url'),
+          'imgLogoUrl'               => Arrays::value($game, 'img_logo_url'),
           'hasCommunityVisibleStats' => Arrays::value(
             $game,
             'has_community_visible_stats',

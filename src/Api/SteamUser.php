@@ -131,9 +131,18 @@ class SteamUser extends Steam
 
     $data = $this->_get($path, $query);
 
+    if (isset($data['response']['steamid']))
+    {
+      $id = $data['response']['steamid'];
+    }
+    else
+    {
+      $id = null;
+    }
+
     return new VanityUrlResponse(
       [
-        'steamId' => $data['response']['steamid']
+        'steamId' => $id
       ]
     );
   }
