@@ -17,6 +17,7 @@
   ],
   "require": {
     "php": ">=5.4",
+    "curl/curl": "~1.2",
     "packaged/helpers": "~1.0"
   },
   "autoload": {

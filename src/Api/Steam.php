@@ -1,6 +1,7 @@
 <?php
 namespace Jleagle\SteamClient\Api;
 
+use Curl\Curl;
 use Jleagle\SteamClient\Enums\SteamFormatEnum;
 use Jleagle\SteamClient\Exceptions\SteamException;
 
@@ -69,8 +70,19 @@ abstract class Steam
     return $this;
   }
 
+  /**
+   * @param string $path
+   * @param array  $query
+   * @param bool   $apiKey
+   *
+   * @return array
+   *
+   * @throws SteamException
+   */
   protected function _get($path = null, $query = [], $apiKey = true)
   {
+    $curl = new Curl();
+
     if($path)
     {
       $query['format'] = $this->_format;
@@ -80,29 +92,23 @@ abstract class Steam
         $query['key'] = $this->_apiKey;
       }
 
-      $path = 'http://api.steampowered.com/' . $this->_getService() . '/' .
-        $path . '?' . http_build_query($query);
+      $service = $this->_getService();
+      $path = 'http://api.steampowered.com/' . $service . '/' . $path;
     }
     else
     {
-      $path = http_build_query($query);
-      $path = 'http://store.steampowered.com/api/appdetails?' . $path;
+      $path = 'http://store.steampowered.com/api/appdetails';
     }
 
-    $context = stream_context_create(
-      [
-        'http' => [
-          'method' => 'GET'
-        ]
-      ]
-    );
+    $curl->get($path, $query);
 
-    $result = @file_get_contents($path, false, $context);
-    if($result === false)
+    if($curl->error)
     {
-      throw new SteamException();
+      throw new SteamException($curl->error_message, $curl->http_status_code);
     }
-
-    return json_decode($result, true);
+    else
+    {
+      return json_decode($curl->response, true);
+    }
   }
 }
