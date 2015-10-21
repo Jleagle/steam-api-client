@@ -3,6 +3,7 @@ namespace Jleagle\SteamClient\Api;
 
 use Jleagle\SteamClient\Enums\FriendRelationshipEnum;
 use Jleagle\SteamClient\Exceptions\SteamException;
+use Jleagle\SteamClient\Exceptions\SteamUserNotFoundException;
 use Jleagle\SteamClient\Responses\FriendResponse;
 use Jleagle\SteamClient\Responses\GroupResponse;
 use Jleagle\SteamClient\Responses\PlayerBanResponse;
@@ -122,7 +123,7 @@ class SteamUser extends Steam
    *
    * @return VanityUrlResponse
    *
-   * @throws SteamException
+   * @throws SteamUserNotFoundException
    */
   public function resolveVanityUrl($vanityUrl)
   {
@@ -131,19 +132,13 @@ class SteamUser extends Steam
 
     $data = $this->_get($path, $query);
 
-    if (isset($data['response']['steamid']))
+    if(isset($data['response']['steamid']))
     {
-      $id = $data['response']['steamid'];
+      return new VanityUrlResponse(['steamId' => $data['response']['steamid']]);
     }
     else
     {
-      $id = null;
+      throw new SteamUserNotFoundException;
     }
-
-    return new VanityUrlResponse(
-      [
-        'steamId' => $id
-      ]
-    );
   }
 }
