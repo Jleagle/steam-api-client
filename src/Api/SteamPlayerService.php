@@ -11,7 +11,7 @@ use Jleagle\SteamClient\Responses\RecentlyPlayedGameResponse;
 use Jleagle\SteamClient\Responses\SteamLevelResponse;
 use Packaged\Helpers\Arrays;
 
-class SteamPlayerService extends Steam
+class AbstractSteamPlayerService extends AbstractSteam
 {
   /**
    * @return string

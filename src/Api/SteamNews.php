@@ -3,7 +3,7 @@ namespace Jleagle\SteamClient\Api;
 
 use Jleagle\SteamClient\Responses\NewsResponse;
 
-class SteamNews extends Steam
+class AbstractSteamNews extends AbstractSteam
 {
   /**
    * @return string

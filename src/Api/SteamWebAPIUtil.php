@@ -5,7 +5,7 @@ use Jleagle\SteamClient\Responses\InterfaceResponse;
 use Jleagle\SteamClient\Responses\MethodResponse;
 use Jleagle\SteamClient\Responses\ParameterResponse;
 
-class SteamWebAPIUtil extends Steam
+class AbstractSteamWebAPIUtil extends AbstractSteam
 {
   /**
    * @return string

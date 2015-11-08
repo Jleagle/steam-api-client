@@ -4,7 +4,7 @@ namespace Jleagle\SteamClient\Api;
 use Jleagle\SteamClient\Exceptions\SteamException;
 use Jleagle\SteamClient\Responses\AppResponse;
 
-class SteamStore extends Steam
+class AbstractSteamStore extends AbstractSteam
 {
   /**
    * @return string

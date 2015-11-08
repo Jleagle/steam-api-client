@@ -10,7 +10,7 @@ use Jleagle\SteamClient\Responses\PlayerBanResponse;
 use Jleagle\SteamClient\Responses\PlayerSummaryResponse;
 use Jleagle\SteamClient\Responses\VanityUrlResponse;
 
-class SteamUser extends Steam
+class AbstractSteamUser extends AbstractSteam
 {
   /**
    * @return string

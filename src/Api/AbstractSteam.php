@@ -5,7 +5,7 @@ use Curl\Curl;
 use Jleagle\SteamClient\Enums\SteamFormatEnum;
 use Jleagle\SteamClient\Exceptions\SteamException;
 
-abstract class Steam
+abstract class AbstractSteam
 {
   protected $_format = SteamFormatEnum::JSON;
   protected $_apiKey = null;
