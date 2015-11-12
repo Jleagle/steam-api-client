@@ -6,7 +6,7 @@ use Jleagle\SteamClient\Responses\AppsListAppResponse;
 use Jleagle\SteamClient\Responses\ServerResponse;
 use Jleagle\SteamClient\Responses\VersionCheckResponse;
 
-class AbstractSteamApps extends AbstractSteam
+class SteamApps extends AbstractSteam
 {
   /**
    * @return string

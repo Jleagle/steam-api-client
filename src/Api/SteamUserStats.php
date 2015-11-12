@@ -14,7 +14,7 @@ use Jleagle\SteamClient\Responses\UserAchievementResponse;
 use Jleagle\SteamClient\Responses\UserStatResponse;
 use Jleagle\SteamClient\Responses\UserStatsResponse;
 
-class AbstractSteamUserStats extends AbstractSteam
+class SteamUserStats extends AbstractSteam
 {
   /**
    * @return string
