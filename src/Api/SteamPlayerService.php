@@ -159,7 +159,7 @@ class SteamPlayerService extends AbstractSteam
         'playerLevel'                => $data['player_level'],
         'playerXpNeededToLevelUp'    => $data['player_xp_needed_to_level_up'],
         'playerXpNeededCurrentLevel' => $data['player_xp_needed_current_level'],
-        'badges'                     => $data['badges'],
+        'badges'                     => Arrays::value($data, 'badges', []),
       ]
     );
 
