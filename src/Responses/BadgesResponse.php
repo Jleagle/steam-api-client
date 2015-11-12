@@ -10,5 +10,5 @@ class BadgesResponse extends AbstractResponse
   /**
    * @var BadgeResponse[]
    */
-  public $badges;
+  public $badges = [];
 }

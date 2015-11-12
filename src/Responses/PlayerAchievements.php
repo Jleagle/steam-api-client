@@ -8,5 +8,5 @@ class PlayerAchievements extends AbstractResponse
   /**
    * @var PlayerAchievement[]
    */
-  public $achievements;
+  public $achievements = [];
 }

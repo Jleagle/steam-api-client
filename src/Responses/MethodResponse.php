@@ -9,5 +9,5 @@ class MethodResponse extends AbstractResponse
   /**
    * @var ParameterResponse[]
    */
-  public $parameters;
+  public $parameters = [];
 }

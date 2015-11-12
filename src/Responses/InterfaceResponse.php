@@ -7,5 +7,5 @@ class InterfaceResponse extends AbstractResponse
   /**
    * @var MethodResponse[]
    */
-  public $methods;
+  public $methods = [];
 }

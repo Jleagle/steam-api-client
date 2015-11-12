@@ -8,9 +8,9 @@ class UserStatsResponse extends AbstractResponse
   /**
    * @var UserAchievementResponse[]
    */
-  public $achievements;
+  public $achievements = [];
   /**
    * @var UserStatResponse[]
    */
-  public $stats;
+  public $stats = [];
 }
