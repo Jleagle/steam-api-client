@@ -138,7 +138,7 @@ class SteamUser extends AbstractSteam
     }
     else
     {
-      throw new SteamUserNotFoundException;
+      throw new SteamUserNotFoundException();
     }
   }
 }

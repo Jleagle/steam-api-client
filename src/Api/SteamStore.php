@@ -1,7 +1,7 @@
 <?php
 namespace Jleagle\SteamClient\Api;
 
-use Jleagle\SteamClient\Exceptions\SteamException;
+use Jleagle\SteamClient\Exceptions\SteamAppNotFoundException;
 use Jleagle\SteamClient\Responses\AppResponse;
 
 class SteamStore extends AbstractSteam
@@ -16,13 +16,22 @@ class SteamStore extends AbstractSteam
 
   /**
    * @param int $appId
+   *
    * @return AppResponse
-   * @throws SteamException
+   *
+   * @throws SteamAppNotFoundException
    */
   public function appDetails($appId)
   {
     $data = $this->_get(null, ['appids' => $appId]);
 
-    return new AppResponse($data[$appId]['data']);
+    if(isset($data[$appId['data']]))
+    {
+      return new AppResponse($data[$appId]['data']);
+    }
+    else
+    {
+      throw new SteamAppNotFoundException();
+    }
   }
 }
