@@ -25,7 +25,7 @@ class SteamStore extends AbstractSteam
   {
     $data = $this->_get(null, ['appids' => $appId]);
 
-    if(isset($data[$appId['data']]))
+    if(isset($data[$appId]['data']))
     {
       return new AppResponse($data[$appId]['data']);
     }
