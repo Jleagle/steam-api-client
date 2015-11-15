@@ -2,9 +2,9 @@
   "name": "jleagle/steam-api-client",
   "keywords": [
     "steam",
-    "web",
     "api",
-    "valve"
+    "client",
+    "steam api"
   ],
   "description": "A package to retrieve information from the steam API",
   "license": "MIT",
