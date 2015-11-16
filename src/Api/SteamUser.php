@@ -92,7 +92,14 @@ class SteamUser extends AbstractSteam
 
     $data = $this->_get($path, $query);
 
-    return new PlayerSummaryResponse($data['response']['players'][0]);
+    if(isset($data['response']['players'][0]))
+    {
+      return new PlayerSummaryResponse($data['response']['players'][0]);
+    }
+    else
+    {
+      throw new SteamUserNotFoundException();
+    }
   }
 
   /**
