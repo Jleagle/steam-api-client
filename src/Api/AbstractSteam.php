@@ -1,7 +1,7 @@
 <?php
 namespace Jleagle\SteamClient\Api;
 
-use Curl\Curl;
+use Jleagle\CurlWrapper\Curl;
 use Jleagle\SteamClient\Enums\SteamFormatEnum;
 use Jleagle\SteamClient\Exceptions\SteamException;
 
@@ -81,8 +81,6 @@ abstract class AbstractSteam
    */
   protected function _get($path = null, $query = [], $apiKey = true)
   {
-    $curl = new Curl();
-
     if($path)
     {
       $query['format'] = $this->_format;
@@ -100,15 +98,15 @@ abstract class AbstractSteam
       $path = 'http://store.steampowered.com/api/appdetails';
     }
 
-    $curl->get($path, $query);
+    $curl = Curl::get($path, $query)->run();
 
-    if($curl->error)
+    if($curl->getErrorNumber())
     {
-      throw new SteamException($curl->error_message, $curl->http_status_code);
+      throw new SteamException($curl->getErrorMessage(), $curl->getHttpCode());
     }
     else
     {
-      return json_decode($curl->response, true);
+      return json_decode($curl->getOutput(), true);
     }
   }
 }

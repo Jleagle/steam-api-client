@@ -17,12 +17,18 @@
   ],
   "require": {
     "php": ">=5.4",
-    "curl/curl": "~1.2",
-    "packaged/helpers": "~1.0"
+    "packaged/helpers": "~1.0",
+    "jleagle/curl-wrapper": "~0.0"
   },
   "autoload": {
     "psr-4": {
       "Jleagle\\SteamClient\\": "src/"
     }
-  }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:jleagle/curl-wrapper.git"
+    }
+  ]
 }
